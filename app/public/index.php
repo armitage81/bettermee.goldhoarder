@@ -43,7 +43,7 @@ if ($comment_filter !== '') {
     $types .= 's';
 }
 
-$count_stmt = $db->prepare("SELECT COUNT(*) FROM gold_entries $where");
+$count_stmt = $db->prepare("SELECT COUNT(*) FROM goldhoarder_gold_entries $where");
 $count_stmt->bind_param($types, ...$params);
 $count_stmt->execute();
 $total = $count_stmt->get_result()->fetch_row()[0];
@@ -51,7 +51,7 @@ $count_stmt->close();
 
 $pagination = paginate($total, $per_page, $page);
 
-$query = "SELECT id, entry_date, amount, comment FROM gold_entries $where ORDER BY $sort $dir LIMIT ? OFFSET ?";
+$query = "SELECT id, entry_date, amount, comment FROM goldhoarder_gold_entries $where ORDER BY $sort $dir LIMIT ? OFFSET ?";
 $params[] = $pagination['per_page'];
 $params[] = $pagination['offset'];
 $types .= 'ii';

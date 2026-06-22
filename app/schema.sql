@@ -1,4 +1,4 @@
-CREATE TABLE IF NOT EXISTS gold_entries (
+CREATE TABLE IF NOT EXISTS goldhoarder_gold_entries (
     id INT AUTO_INCREMENT PRIMARY KEY,
     user_id INT NOT NULL,
     entry_date DATE NOT NULL,

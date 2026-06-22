@@ -7,7 +7,7 @@ if ($id <= 0) {
     exit('Invalid entry ID.');
 }
 
-$stmt = $db->prepare("SELECT id, entry_date, amount, comment FROM gold_entries WHERE id = ? AND user_id = ?");
+$stmt = $db->prepare("SELECT id, entry_date, amount, comment FROM goldhoarder_gold_entries WHERE id = ? AND user_id = ?");
 $stmt->bind_param('ii', $id, $user_id);
 $stmt->execute();
 $entry = $stmt->get_result()->fetch_assoc();
@@ -43,7 +43,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
 
     if (empty($errors)) {
-        $stmt = $db->prepare("SELECT id FROM gold_entries WHERE user_id = ? AND entry_date = ? AND id != ?");
+        $stmt = $db->prepare("SELECT id FROM goldhoarder_gold_entries WHERE user_id = ? AND entry_date = ? AND id != ?");
         $stmt->bind_param('isi', $user_id, $entry_date, $id);
         $stmt->execute();
         if ($stmt->get_result()->num_rows > 0) {
@@ -55,7 +55,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if (empty($errors)) {
         $comment_val = $comment !== '' ? $comment : null;
         $amount_int = (int)$amount;
-        $stmt = $db->prepare("UPDATE gold_entries SET entry_date = ?, amount = ?, comment = ? WHERE id = ? AND user_id = ?");
+        $stmt = $db->prepare("UPDATE goldhoarder_gold_entries SET entry_date = ?, amount = ?, comment = ? WHERE id = ? AND user_id = ?");
         $stmt->bind_param('sisii', $entry_date, $amount_int, $comment_val, $id, $user_id);
         $stmt->execute();
         $stmt->close();

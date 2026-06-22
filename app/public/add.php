@@ -26,7 +26,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
 
     if (empty($errors)) {
-        $stmt = $db->prepare("SELECT id FROM gold_entries WHERE user_id = ? AND entry_date = ?");
+        $stmt = $db->prepare("SELECT id FROM goldhoarder_gold_entries WHERE user_id = ? AND entry_date = ?");
         $stmt->bind_param('is', $user_id, $entry_date);
         $stmt->execute();
         if ($stmt->get_result()->num_rows > 0) {
@@ -38,7 +38,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if (empty($errors)) {
         $comment_val = $comment !== '' ? $comment : null;
         $amount_int = (int)$amount;
-        $stmt = $db->prepare("INSERT INTO gold_entries (user_id, entry_date, amount, comment) VALUES (?, ?, ?, ?)");
+        $stmt = $db->prepare("INSERT INTO goldhoarder_gold_entries (user_id, entry_date, amount, comment) VALUES (?, ?, ?, ?)");
         $stmt->bind_param('isis', $user_id, $entry_date, $amount_int, $comment_val);
         $stmt->execute();
         $stmt->close();

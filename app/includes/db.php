@@ -21,7 +21,7 @@ function get_db(): mysqli {
 
     $conn->set_charset('utf8mb4');
 
-    $result = $conn->query("SHOW TABLES LIKE 'gold_entries'");
+    $result = $conn->query("SHOW TABLES LIKE 'goldhoarder_gold_entries'");
     if ($result->num_rows === 0) {
         $schema = file_get_contents(__DIR__ . '/../schema.sql');
         $conn->multi_query($schema);

@@ -18,7 +18,7 @@ Gold Hoarder is a small PHP web widget that lets a user track their gold balance
 
 ## Data Model
 
-### Table: `gold_entries`
+### Table: `goldhoarder_gold_entries`
 
 | Column     | Type         | Constraints                          |
 |------------|--------------|--------------------------------------|
@@ -106,7 +106,7 @@ Gold Hoarder is a small PHP web widget that lets a user track their gold balance
 - Authentication is handled by the shell (see integration contract above).
 - The widget reads `$_SESSION['user_id']` to identify the current user.
 - The widget enforces that a user can only see and modify their own entries.
-- The `user_id` column in `gold_entries` maps to the shell's user ID.
+- The `user_id` column in `goldhoarder_gold_entries` maps to the shell's user ID.
 
 ## Non-Functional Requirements
 

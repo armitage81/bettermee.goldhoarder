@@ -1,6 +1,6 @@
 USE goldhoarder;
 
-CREATE TABLE IF NOT EXISTS gold_entries (
+CREATE TABLE IF NOT EXISTS goldhoarder_gold_entries (
     id INT AUTO_INCREMENT PRIMARY KEY,
     user_id INT NOT NULL,
     entry_date DATE NOT NULL,
@@ -12,7 +12,7 @@ CREATE TABLE IF NOT EXISTS gold_entries (
     INDEX idx_user_id (user_id)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
-INSERT INTO gold_entries (user_id, entry_date, amount, comment) VALUES
+INSERT INTO goldhoarder_gold_entries (user_id, entry_date, amount, comment) VALUES
 (1, '2026-06-20', 100, 'Starting gold'),
 (1, '2026-06-21', 250, 'Quest reward'),
 (1, '2026-06-22', 300, NULL),

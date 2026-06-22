@@ -7,7 +7,7 @@ if ($id <= 0) {
     exit('Invalid entry ID.');
 }
 
-$stmt = $db->prepare("SELECT id, entry_date, amount, comment FROM gold_entries WHERE id = ? AND user_id = ?");
+$stmt = $db->prepare("SELECT id, entry_date, amount, comment FROM goldhoarder_gold_entries WHERE id = ? AND user_id = ?");
 $stmt->bind_param('ii', $id, $user_id);
 $stmt->execute();
 $entry = $stmt->get_result()->fetch_assoc();
@@ -21,7 +21,7 @@ if (!$entry) {
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     verify_csrf();
 
-    $stmt = $db->prepare("DELETE FROM gold_entries WHERE id = ? AND user_id = ?");
+    $stmt = $db->prepare("DELETE FROM goldhoarder_gold_entries WHERE id = ? AND user_id = ?");
     $stmt->bind_param('ii', $id, $user_id);
     $stmt->execute();
     $stmt->close();
