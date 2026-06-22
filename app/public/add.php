@@ -1,5 +1,5 @@
 <?php
-require_once __DIR__ . '/includes/bootstrap.php';
+require_once __DIR__ . '/../includes/bootstrap.php';
 
 $errors = [];
 $entry_date = $_POST['entry_date'] ?? date('Y-m-d');

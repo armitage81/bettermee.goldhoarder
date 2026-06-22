@@ -1,3 +1,5 @@
 .env
 db_data/
-src/dev-login.php
+app/public/dev-login.php
+deploy.conf
+app/includes/env.php

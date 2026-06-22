@@ -1,5 +1,5 @@
 <?php
-require_once __DIR__ . '/includes/bootstrap.php';
+require_once __DIR__ . '/../includes/bootstrap.php';
 
 $allowed_sorts = ['entry_date', 'amount', 'comment'];
 $sort = in_array($_GET['sort'] ?? '', $allowed_sorts) ? $_GET['sort'] : 'entry_date';

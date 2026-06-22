@@ -1,5 +1,0 @@
-RewriteEngine On
-
-# Deny access to includes and SQL files
-RewriteRule ^includes/ - [F,L]
-RewriteRule ^schema\.sql$ - [F,L]
