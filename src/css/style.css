@@ -1,0 +1,13 @@
+th a {
+    color: inherit;
+}
+
+th a:hover {
+    color: inherit;
+    text-decoration: underline !important;
+}
+
+.table td,
+.table th {
+    vertical-align: middle;
+}
